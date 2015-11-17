@@ -49,7 +49,7 @@ function extract() {
     done
 }
 
-if [ -f ../../../vendor/$VENDOR/$DEVICE/proprietary]; then
+if [ -f ../../../vendor/$VENDOR/$DEVICE/proprietary ]; then
 	../../../device/$VENDOR/$DEVICE/setup-makefiles.sh
 else
 	DEVBASE=../../../vendor/$VENDOR/$DEVICE/proprietary
