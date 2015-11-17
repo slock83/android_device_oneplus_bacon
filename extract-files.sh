@@ -49,11 +49,14 @@ function extract() {
     done
 }
 
+if [ -f ../../../vendor/$VENDOR/$DEVICE/proprietary]; then
+	../../../device/$VENDOR/$DEVICE/setup-makefiles.sh
+else
+	DEVBASE=../../../vendor/$VENDOR/$DEVICE/proprietary
+	rm -rf $DEVBASE/*
 
-DEVBASE=../../../vendor/$VENDOR/$DEVICE/proprietary
-rm -rf $DEVBASE/*
+	extract proprietary-files-qc.txt $DEVBASE
+	extract proprietary-files.txt $DEVBASE
 
-extract proprietary-files-qc.txt $DEVBASE
-extract proprietary-files.txt $DEVBASE
-
-../../../device/$VENDOR/$DEVICE/setup-makefiles.sh
+	../../../device/$VENDOR/$DEVICE/setup-makefiles.sh
+fi
