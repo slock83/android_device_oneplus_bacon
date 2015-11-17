@@ -202,3 +202,4 @@ endif
 endif
 
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
+TARGET_PROVIDES_INIT_RC := true
